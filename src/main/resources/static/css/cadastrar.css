@@ -1,0 +1,149 @@
+body{
+    background: #f0f0f0;
+    
+}
+
+#side_nav{
+    background-color: #204057;
+    min-width: 250px;
+    max-width: 250px;
+    transition: all 0.3s;
+    border-right: solid 2px #4E7FA3;
+}
+
+.content{
+    min-height: 100vh;
+    width: 100% ;
+}
+
+.sidebar li:hover{
+    color: #fff;
+    opacity: 0.7;
+}
+
+.sidebar li.active{
+    background: #fff;
+    border-radius: 8px;
+    opacity: 1;
+}
+
+.sidebar li a:hover {
+    color: #fff;
+}
+
+.sidebar li.active a, .sidebar li.active a:hover {
+    color: #204057;
+}
+
+.sidebar li a{
+    color: #fff;
+    font-size: large;
+    font-weight: bold;
+}
+
+.sidebar li ul li a {
+    font-weight: 450;
+}
+
+@media(max-width: 767px) {
+    #side_nav{
+        margin-left: -250px;
+        position: fixed;
+        min-height: 100vh;
+        z-index: 1;
+    }
+
+    #side_nav.active{
+        margin-left: 0;
+    }
+}
+
+#xd {
+    padding: 0%;
+}
+
+
+#linha-logo{
+    border: 1px solid #fff;
+}
+
+#logo {
+    width: 85%;
+    margin-left: 6%;
+}
+
+#logo-irm{
+    position: absolute;
+    bottom: 1%;
+    width: 200px;
+    margin-left: 20px;
+}
+
+#cabecalho {
+    background: #204057;
+}
+
+#logo-mobile{
+    width: 35%;
+    margin: 8px;
+}
+
+#campo-pesquisar{
+    border-radius: 10px;
+    border-color: #204057;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 1%;
+}
+
+#campo-pesquisar::placeholder{
+    padding-left: 5%;
+}
+
+.sidebar li .submenu{ 
+	list-style: none; 
+	margin: 0; 
+	padding: 0; 
+	padding-left: 1rem; 
+	padding-right: 1rem;
+}
+
+#dropdown-perfil{
+    text-align: left;
+}
+
+#header-content-title {
+    text-align: center;
+    color: #204057;
+    margin-bottom: 20px;
+}
+
+.botoes {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.error input {
+    border: 3px solid #DB5A5A;
+}
+
+small {
+    visibility: hidden;
+    color: red;
+}
+
+
+#sexoF{
+    margin-left: 15px;
+}
+
+#emailInfo:invalid{
+    border-color: red;
+}
+
+/* simulação erro 
+.form-control.error{
+    border: 3px solid #DB5A5A;
+}
+
+*/

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.rtl.min.css"
+        integrity="sha384-OXTEbYDqaX2ZY/BOaZV/yFGChYHtrXH2nyXJ372n2Y8abBhrqacCEe+3qhSHtLjy" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/cadastrar.css" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="shortcut icon" type="imagex/png" href="img/logozinha-elevate.png">
+
+
+    <title>Elevate Care - Cadastro</title>
+</head>
+
+<body>
+    <div class="main-container d-flex">
+        <div class="sidebar" id="side_nav">
+            <div class="header-box px-2 pt-3 pb-3 d-flex justify-content-between">
+                <img id="logo" src="img/elevate-care-white-blue.png" alt="logo elevate care" />
+                <button class="btn d-md-none d-block btn close-btn px-1 py-0 text-white"><i
+                        class="fad fa-stream"></i></button>
+            </div>
+            <hr id="linha-logo">
+            <ul class="list-unstyled px-2 nav flex-colum d-block" id="nav_accordion">
+                <li class="nav-item"><a href="/" class="text-decoration-none px-3 py-2 d-block nav-link"><i
+                            class="fas fa-home"></i> Home</a></li>
+                <li class="active nav-item has-submenu"><a href="#"
+                        class="text-decoration-none px-3 py-2 d-block nav-link"><i class="fas fa-user"></i> Paciente</a>
+                    <ul class="list-unstyled submenu collapse">
+                        <li><a href="/listar" class="nav-link">Listar Paciente</a></li>
+                        <li><a href="#" class="nav-link">Cadastrar Paciente</a></li>
+                        <li><a href="#" class="nav-link">Agendamento</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item has-submenu"><a href="#" class="text-decoration-none px-3 py-2 d-block nav-link"><i
+                            class="fas fa-plus"></i> Médico</a>
+                    <ul class="list-unstyled submenu collapse">
+                        <li><a href="#" class="nav-link">Agenda</a></li>
+                        <li><a href="#" class="nav-link">P.E.P.</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block nav-link"><i
+                            class="fas fa-dollar-sign"></i> Financeiro</a></li>
+                <li class="nav-item has-submenu"><a href="#" class="text-decoration-none px-3 py-2 d-block nav-link"><i
+                            class="fas fa-signal-alt-3"></i> Relatórios </a>
+                    <ul class="list-unstyled submenu collapse">
+                        <li><a class="nav-link" href="#">Consultas por Paciente</a></li>
+                        <li><a class="nav-link" href="#">Consultas por Período</a></li>
+                        <li><a class="nav-link" href="#">Quantidade de Agendamentos</a></li>
+                        <li><a class="nav-link" href="#">Consultas por Médico</a></li>
+                    </ul>
+                </li>
+                <li class=""><a href="#" class="text-decoration-none px-3 py-2 d-block nav-link"><i
+                            class="fas fa-cog"></i> Configurações</a></li>
+            </ul>
+            <img src="img/logo-irm-branca.png" alt="" id="logo-irm" class="px-5"/>
+        </div>
+        <div class="content">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" id="xd">
+                <div class="container-fluid" id="cabecalho">
+                    <div class="d-flex justify-content-between d-md-none d-block">
+                        <button class="btn px-1 py-0 open-btn me-2 text-white"><i class="fal fa-stream"></i></button>
+                        <img src="img/elevate-care-white-blue.png" id="logo-mobile">
+                        <a class="navbar-brand fs-4" href="#"></a>
+                    </div>
+                    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                        <form class="d-flex">
+                            <input id="campo-pesquisar" class="form-control me-2" type="search" placeholder="Pesquisar"
+                                aria-label="Search">
+                        </form>
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Administrador
+                                </a>
+                                <ul class="dropdown-menu" id="dropdown-perfil" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Meu Perfil</a></li>
+                                    <li><a class="dropdown-item" href="#">Ajuda</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li><a class="dropdown-item" href="login2.html">Sair</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <div class="container mt-4 mb-4">
+                <h3 id="header-content-title">Cadastrar Paciente</h3>
+                <hr class="divso">
+                <form class="row g-3" id="form" method="post" action="/cadastrarPaciente" onsubmit="return cadastrarPaciente()">
+                    <p><i class="fas fa-info-circle"></i> Informações Pessoais</p>
+                    <div class="col-md-6 required">
+                        <label for="fullName" class="form-label"> Nome Completo *</label>
+                        <input type="text" class="form-control " id="fullName" name="nomeCompleto">
+                        <small id="fullNameSmall">O Campo 'Nome Completo' é obrigatório!</small>
+                    </div>
+                    <div class="col-md-3 required">
+                        <label for="cpf" class="form-label"> CPF * </label>
+                        <input type="text" maxlength="11" class="form-control" id="cpf" placeholder="999.999.999-99" name="cpf">
+                        <small id="cpfSmall">O Campo 'CPF' é obrigatório!</small>
+
+                    </div>
+                    <div class="col-md-3 required">
+                        <label for="DtNasc" class="form-label"> Data de Nascimento *</label>
+                        <input type="date" class="form-control" id="dtNasc" name="dataNasc">
+                        <small id="dtNascSmall">O Campo 'Data de Nascimento' é obrigatório!</small>
+                    </div>
+                    <div class="col-md-2 required">
+                        <label for="sexo" class="form-label"> Sexo *</label><br>
+                        <input type="radio" name="sexo" value="m" checked="true"> M
+                        <input id="sexoF" type="radio" name="sexo" value="f"> F
+                        <small id="sexoSmall">O Campo 'Sexo' é obrigatório!</small>
+                    </div>
+                    <div class="col-md-4 required">
+                        <label for="rg" class="form-label"> RG *</label>
+                        <input type="text" class="form-control" id="rg" name="rg">
+                        <small id="rgSmall">O Campo 'RG' é obrigatório!</small>
+                    </div>
+                    <div class="col-md-3 required">
+                        <label for="orgExp" class="form-label"> Órgão Expedidor *</label>
+                        <input type="text" class="form-control" id="orgExp" name="orgaoExp">
+                        <small id="orgExpSmall">O Campo 'Órgão Expedidor' é obrigatório!</small>
+
+                    </div>
+                    <div class="col-md-3">
+                        <label for="ufRg" class="form-label"> UF *</label>
+                        <select id="ufRg" class="form-control" name="ufOE">
+                            <option value="">Selecione</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espirito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                        <small id="ufRgSmall">O Campo 'UF' é obrigatório!</small>
+                    </div>
+                    <hr class="divso">
+                    <p><i class="fas fa-home"></i> Endereço </p>
+                    <div class="col-md-6 required">
+                        <label for="endereco" class="form-label"> Endereço *</label>
+                        <input type="text" class="form-control" id="endereco" name="endereco">
+                        <small id="enderecoSmall">O Campo 'Endereço' é obrigatório!</small>
+                    </div>
+                    <div class="col-md-2 required">
+                        <label for="numEndereco" class="form-label"> Número *</label>
+                        <input type="text" class="form-control" id="numEndereco" name="numero">
+                        <small id="numEnderecoSmall">O Campo 'Número' é obrigatório!</small>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="complemento" class="form-label"> Complemento </label>
+                        <input type="text" class="form-control" id="complemento" name="complemento">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="bairro" class="form-label"> Bairro *</label>
+                        <input type="text" class="form-control" id="bairro" name="bairro">
+                        <small id="bairroSmall">O Campo 'Bairro' é obrigatório!</small>
+                    </div>
+                    <div class="col-md-3 required">
+                        <label for="municipio" class="form-label"> Munícipio *</label>
+                        <input type="text" class="form-control" id="municipio" name="municipio">
+                        <small id="municipioSmall">O Campo 'Munícipio' é obrigatório!</small>
+                    </div>
+                    <div class="col-md-2 required">
+                        <label for="uf" class="form-label"> UF *</label>
+                        <select id="uf" class="form-control" name="uf">
+                            <option value="">Selecione</option>
+                            <option value="AC">Acre</option>
+                            <option value="AL">Alagoas</option>
+                            <option value="AP">Amapá</option>
+                            <option value="AM">Amazonas</option>
+                            <option value="BA">Bahia</option>
+                            <option value="CE">Ceará</option>
+                            <option value="DF">Distrito Federal</option>
+                            <option value="ES">Espirito Santo</option>
+                            <option value="GO">Goiás</option>
+                            <option value="MA">Maranhão</option>
+                            <option value="MS">Mato Grosso do Sul</option>
+                            <option value="MT">Mato Grosso</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="PA">Pará</option>
+                            <option value="PB">Paraíba</option>
+                            <option value="PR">Paraná</option>
+                            <option value="PE">Pernambuco</option>
+                            <option value="PI">Piauí</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="RN">Rio Grande do Norte</option>
+                            <option value="RS">Rio Grande do Sul</option>
+                            <option value="RO">Rondônia</option>
+                            <option value="RR">Roraima</option>
+                            <option value="SC">Santa Catarina</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="SE">Sergipe</option>
+                            <option value="TO">Tocantins</option>
+                        </select>
+                        <small id="ufSmall">O Campo 'UF' é obrigatório!</small>
+
+                    </div>
+                    <div class="col-md-4 required">
+                        <label for="cep" class="form-label"> CEP *</label>
+                        <input type="text" id="cep" maxlength="8" class="form-control" name="cep">
+                        <small id="cepSmall">O Campo 'CEP' é obrigatório!</small>
+
+                    </div>
+                    <hr class="divso">
+                    <p><i class="fas fa-phone-alt"></i> Contato </p>
+                    <div class="col-md-4 required">
+                        <label for="telefone" class="form-label"> Telefone *</label>
+                        <input type="text" class="form-control" placeholder="(99) 99999-9999" id="telefone" name="telefone">
+                        <small id="telefoneSmall">O Campo 'Telefone' é obrigatório!</small>
+
+                    </div>
+                    <div class="col-md-4">
+                        <label for="telefone" class="form-label"> Telefone (opcional) </label>
+                        <input type="text" class="form-control" placeholder="(99) 99999-9999" id="telefone2" name="telefone2">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="emailInfo" class="form-label"> E-mail </label>
+                        <input type="email" class="form-control" onblur="validarEmail()" placeholder="email@exemplo.com"
+                            id="emailInfo" name="email">
+                    </div>
+                    <hr class="divso">
+                    <p><i class="fas fa-user"></i> Responsável </p>
+                    <div class="col-md-6">
+                        <label for="mae" class="form-label"> Nome da Mãe </label>
+                        <input type="text" class="form-control" id="mae" name="mae">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="pai" class="form-label"> Nome do Pai </label>
+                        <input type="text" class="form-control" id="pai" name="pai">
+                    </div>
+                    <div class="botoes">
+                        <input type="reset" value="Limpar" class="btn btn-secondary">
+                        <input type="submit" value="Salvar" class="btn btn-primary">
+                        </input>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.1/js/bootstrap.min.js"
+        integrity="sha512-vyRAVI0IEm6LI/fVSv/Wq/d0KUfrg3hJq2Qz5FlfER69sf3ZHlOrsLriNm49FxnpUGmhx+TaJKwJ+ByTLKT+Yg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
+
+
+    <script>
+        $(".sidebar ul li").on('click', function () {
+            $(".sidebar ul li.active"). removeClass('active');
+            $(this).addClass('active');
+        })
+
+        $('.open-btn').on('click', function () {
+            $('.sidebar').addClass('active');
+        });
+
+        $('.close-btn').on('click', function () {
+            $('.sidebar').removeClass('active');
+        });  
+    </script>
+
+    <script>
+        $("#telefone").mask("(99) 99999-9999");
+        $("#telefone2").mask("(99) 99999-9999");
+        $("#cep").mask("99999-999");
+        $("#cpf").mask("999.999.999-99");
+    </script>
+
+    <script src="js/validacaoForm.js"></script>
+    <script src="js/submenu.js"></script>
+
+</body>
+
+</html>
